@@ -9,84 +9,53 @@ html{
 }
 
 body{
-    background:#050505;
+    background:#060606;
     color:#f5deb3;
-    font-family:'Cinzel',serif;
+    font-family:'Cinzel', serif;
     overflow-x:hidden;
-    position:relative;
+    line-height:1.6;
 }
-
-/* Background */
 
 body::before{
     content:'';
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.75),
-        rgba(0,0,0,.9)
-    ),
-    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176');
-
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176');
     background-size:cover;
     background-position:center;
-
-    z-index:-5;
+    z-index:-1;
 }
-
-/* Stars */
 
 .stars{
     position:fixed;
-    width:100%;
-    height:100%;
-    background-image:
-    radial-gradient(white 1px,transparent 1px);
+    inset:0;
+    background-image:radial-gradient(white 1px, transparent 1px);
     background-size:50px 50px;
-    opacity:.25;
-    animation:twinkle 4s infinite alternate;
-    z-index:-4;
+    opacity:0.22;
+    pointer-events:none;
+    z-index:-1;
 }
-
-@keyframes twinkle{
-    from{
-        opacity:.1;
-    }
-    to{
-        opacity:.35;
-    }
-}
-
-/* Fog */
 
 .fog{
     position:fixed;
-    width:200%;
-    height:200%;
-    background:
-    radial-gradient(
-        rgba(255,255,255,.04),
-        transparent 70%
-    );
-    animation:fogMove 60s linear infinite;
-    z-index:-3;
+    inset:-20%;
+    background:radial-gradient(rgba(255,255,255,0.05), transparent 70%);
+    pointer-events:none;
+    z-index:-1;
 }
 
-@keyframes fogMove{
-    from{
-        transform:translateX(-20%);
-    }
-    to{
-        transform:translateX(20%);
-    }
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:2px solid gold;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%, -50%);
+    box-shadow:0 0 10px gold;
 }
-
-/* Hero */
 
 .hero{
     min-height:100vh;
@@ -104,10 +73,7 @@ body::before{
 }
 
 .glow{
-    text-shadow:
-    0 0 10px gold,
-    0 0 20px gold,
-    0 0 40px gold;
+    text-shadow:0 0 10px rgba(255,215,0,0.4);
 }
 
 .hero h2{
@@ -121,8 +87,6 @@ body::before{
     color:#ddd;
 }
 
-/* Magic Button */
-
 .magic-btn{
     margin-top:30px;
     padding:15px 35px;
@@ -132,22 +96,18 @@ body::before{
     color:black;
     font-size:18px;
     cursor:pointer;
-    transition:.3s;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .magic-btn:hover{
-    transform:scale(1.1);
-    box-shadow:
-    0 0 15px gold,
-    0 0 40px gold;
+    transform:translateY(-2px);
+    box-shadow:0 0 12px rgba(255,215,0,0.35);
 }
-
-/* Navigation */
 
 .spellbook{
     position:sticky;
     top:0;
-    background:rgba(0,0,0,.85);
+    background:rgba(0,0,0,0.85);
     padding:20px;
     display:flex;
     justify-content:center;
@@ -159,44 +119,28 @@ body::before{
 .spellbook a{
     color:#f5deb3;
     text-decoration:none;
-    transition:.3s;
+    transition:color 0.2s ease;
 }
 
-.spellbook a:hover{
+.spellbook a:hover,
+.spellbook a.active{
     color:gold;
-    text-shadow:0 0 10px gold;
 }
-
-/* Cards */
 
 .card{
     width:85%;
     margin:50px auto;
     padding:35px;
-    background:
-    rgba(30,20,10,.85);
+    background:rgba(30,20,10,0.85);
     border:2px solid #b8860b;
     border-radius:20px;
-    backdrop-filter:blur(8px);
-
-    box-shadow:
-    0 0 15px rgba(255,215,0,.3);
-
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:
-    0 0 25px rgba(255,215,0,.6);
+    box-shadow:0 0 12px rgba(255,215,0,0.2);
 }
 
 .card h2{
     margin-bottom:25px;
     color:gold;
 }
-
-/* Skills */
 
 .skills{
     display:flex;
@@ -208,44 +152,21 @@ body::before{
     flex:1;
     min-width:180px;
     padding:20px;
-
     border:1px solid gold;
-
     border-radius:15px;
-
     text-align:center;
-
-    transition:.4s;
-}
-
-.skill:hover{
-    transform:scale(1.05);
-    box-shadow:
-    0 0 20px gold;
 }
 
 .skill h3{
     color:#ffd700;
 }
 
-/* Projects */
-
 .project{
     padding:20px;
     margin-top:20px;
-
-    background:
-    rgba(0,0,0,.3);
-
+    background:rgba(0,0,0,0.3);
     border-left:5px solid gold;
-
     border-radius:10px;
-
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateX(10px);
 }
 
 .resume-link{
@@ -263,162 +184,30 @@ body::before{
     background:#ffd966;
 }
 
-/* Cursor */
-
-.cursor{
-    width:20px;
-    height:20px;
-
-    border:2px solid gold;
-
-    border-radius:50%;
-
-    position:fixed;
-
-    pointer-events:none;
-
-    z-index:9999;
-
-    box-shadow:
-    0 0 10px gold,
-    0 0 20px gold;
-}
-
-/* Floating animation */
-
-.card,
-.skill,
-.project{
-    animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-5px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
-
-/* Contact */
-
 #contact h3{
     color:gold;
     margin-top:15px;
 }
 
-/* Responsive */
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.5rem;
-}
-
-.hero h2{
-    font-size:1rem;
-}
-
-.spellbook{
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.card{
-    width:95%;
-}
-
-.skills{
-    flex-direction:column;
-}
-
-}
-/* Spark */
-
-.spark{
-    position:fixed;
-    width:8px;
-    height:8px;
-    background:gold;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:9999;
-
-    animation:spark .8s linear forwards;
-}
-
-@keyframes spark{
-
-    0%{
-        opacity:1;
-        transform:scale(1);
+@media (max-width:768px){
+    .hero h1{
+        font-size:2.5rem;
     }
 
-    100%{
-        opacity:0;
-        transform:scale(4);
-    }
-}
-
-
-/* Candle */
-
-.candle{
-    position:fixed;
-    pointer-events:none;
-    z-index:5;
-
-    animation:flicker .3s infinite alternate;
-}
-
-@keyframes flicker{
-
-    from{
-        opacity:.7;
+    .hero h2{
+        font-size:1rem;
     }
 
-    to{
-        opacity:1;
-    }
-}
-
-
-/* Magic Particles */
-
-.magic-particle{
-
-    position:fixed;
-
-    width:3px;
-    height:3px;
-
-    background:gold;
-
-    border-radius:50%;
-
-    opacity:.5;
-
-    pointer-events:none;
-
-    animation:
-        particleFloat linear infinite;
-}
-
-@keyframes particleFloat{
-
-    from{
-        transform:
-        translateY(100vh);
+    .spellbook{
+        gap:15px;
+        flex-wrap:wrap;
     }
 
-    to{
-        transform:
-        translateY(-100vh);
+    .card{
+        width:95%;
+    }
+
+    .skills{
+        flex-direction:column;
     }
 }
