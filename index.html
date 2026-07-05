@@ -3,167 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>{{ portfolio.name }} | Digital Hogwarts</title>
-
+<title>Sakthi Prakash | Digital Hogwarts</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}">
-
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="stars"></div>
+  <div class="fog"></div>
+  <div class="cursor"></div>
 
-<div class="stars"></div>
-<div class="fog"></div>
-
-<div class="cursor"></div>
-
-<header class="hero">
-
-    <div class="castle"></div>
-
-    <h1 class="glow">
-        ⚡ {{ portfolio.name }}
-    </h1>
-
-    <h2>
-        {{ portfolio.title }}
-    </h2>
-
-    <p>
-        {{ portfolio.subtitle }}
-    </p>
-
-    <button class="magic-btn"
-            onclick="document.getElementById('about')
-            .scrollIntoView({behavior:'smooth'})">
-
-        Enter Hogwarts
+  <header class="hero">
+    <h1 class="glow">⚡ Sakthi Prakash</h1>
+    <h2>php Developer | Python Developer</h2>
+    <p>Welcome to My Digital Hogwarts</p>
+    <button class="magic-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      Enter Hogwarts
     </button>
+  </header>
 
-</header>
-
-<nav class="spellbook">
-
+  <nav class="spellbook">
     <a href="#about">🏰 About</a>
-
     <a href="#skills">📜 Spells</a>
-
     <a href="#projects">🪄 Projects</a>
-
     <a href="#contact">🦉 Owl Post</a>
+  </nav>
 
-</nav>
-
-<section id="about" class="card">
-
+  <section id="about" class="card">
     <h2>🏰 About Chamber</h2>
-
     <p>
-        {{ portfolio.about }}
+      Passionate developer with experience in server-side development,
+      automation, web technologies, and problem solving. I enjoy building
+      scalable applications and creating unique user experiences.
     </p>
+  </section>
 
-    <br>
-
-    
-
-</section>
-
-<section id="skills" class="card">
-
+  <section id="skills" class="card">
     <h2>📜 Spell Book</h2>
-
     <div class="skills">
-
-        {% for skill in portfolio.skills %}
-
-        <div class="skill">
-
-            <h3>{{ skill.name }}</h3>
-
-            <p>{{ skill.spell }}</p>
-
-        </div>
-
-        {% endfor %}
-
+      <div class="skill">
+        <h3>Python</h3>
+        <p>Expecto Codronum</p>
+      </div>
+      <div class="skill">
+        <h3>PHP</h3>
+        <p>Serverus Maxima</p>
+      </div>
+      <div class="skill">
+        <h3>JavaScript</h3>
+        <p>Scriptum Lumos</p>
+      </div>
+      <div class="skill">
+        <h3>HTML</h3>
+        <p>Structura Charm</p>
+      </div>
+      <div class="skill">
+        <h3>CSS</h3>
+        <p>Stylius Magica</p>
+      </div>
+      <div class="skill">
+        <h3>MySQL</h3>
+        <p>Databaseus</p>
+      </div>
     </div>
+  </section>
 
-</section>
-
-<section id="experience" class="card">
-
+  <section id="experience" class="card">
     <h2>💼 Working Experience</h2>
+    <p>meantech solutions 08/2024-11/2024  JK fenner 12/2026-present</p>
+  </section>
 
-    <p>{{ portfolio['Working exprience'] }}</p>
-
-</section>
-
-<section id="projects" class="card">
-
+  <section id="projects" class="card">
     <h2>🪄 Magical Projects</h2>
 
-    {% for project in portfolio.projects %}
-
     <div class="project">
-
-        <h3>
-            {{ project.icon }}
-            {{ project.name }}
-        </h3>
-
-        <p>
-            {{ project.description }}
-        </p>
-
-        {% if project.name == 'ChatterPufz' and project.demo_link %}
-        <a class="resume-link" href="{{ project.demo_link }}" target="_blank" rel="noopener noreferrer">
-            Live Demo
-        </a>
-        {% endif %}
-
-        {% if project.name == 'My Old Portfolio' and project.demo_link %}
-        <a class="resume-link" href="{{ project.demo_link }}" target="_blank" rel="noopener noreferrer">
-            Live Demo
-        </a>
-        {% endif %}
-
-        {% if project.name == 'Resume' %}
-        <a class="resume-link" href="{{ url_for('static', filename='Sp new resume.pdf') }}" target="_blank" rel="noopener noreferrer">
-            View Resume PDF
-        </a>
-        {% endif %}
-
+      <h3>🏦 ATM Management System</h3>
+      <p>Banking management application with account handling, transaction processing, and reporting.</p>
     </div>
 
-    {% endfor %}
+    <div class="project">
+      <h3>🍽️ Food Restaurant Website</h3>
+      <p>Responsive restaurant website with menu display and ordering features.</p>
+    </div>
 
-</section>
+    <div class="project">
+      <h3>📊 Automatic Report Generator</h3>
+      <p>Automated report generation system for enterprise workflow optimization.</p>
+    </div>
 
-<section id="contact" class="card">
+    <div class="project">
+      <h3>🤖 ChatterPufz</h3>
+      <p>An AI-powered chat application with a modern and interactive conversational experience.</p>
+      <a class="resume-link" href="https://chatterpuffz.streamlit.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+    </div>
 
+    <div class="project">
+      <h3>💼 My Old Portfolio</h3>
+      <p>A previous personal portfolio website showcasing my earlier web development and design work.</p>
+      <a class="resume-link" href="https://sakthiprakah.github.io/myportfolio/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+    </div>
+
+    <div class="project">
+      <h3>📄 Resume</h3>
+      <p>My professional resume highlighting skills, experience, and achievements.</p>
+      <a class="resume-link" href="Sp new resume.pdf" target="_blank" rel="noopener noreferrer">View Resume PDF</a>
+    </div>
+  </section>
+
+  <section id="contact" class="card">
     <h2>🦉 Owl Post</h2>
+    <p>Send your owl to:</p>
+    <h3>sakthiprakash0077@gmail.com</h3>
+  </section>
 
-    <p>
-        Send your owl to:
-    </p>
-
-    <h3>
-        {{ portfolio.contact.email }}
-    </h3>
-
-</section>
-
-<audio autoplay loop>
-    <source src="{{ url_for('static',
-    filename='audio/ambient.mp3') }}"
-    type="audio/mpeg">
-</audio>
-
-<script src="{{ url_for('static',
-filename='script.js') }}"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
